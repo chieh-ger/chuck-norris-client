@@ -14,21 +14,14 @@ const CLIENT = new Client({
   uri: 'http://localhost:3100/graphql'
 });
 export default function App() {
-  // States
-  const [category, updateCategory] = useState('');
-
-  const setCategory = (categoryName) => {
-    updateCategory(categoryName);
-  }
-
   return (
     <Provider store={Store}>
       <ApolloProvider client={CLIENT}>
         <div className="container">
           <h1 style={{padding: '20px'}}>SovTech Assessment</h1>
           <p>Below is the list of available Chuck Norris joke categories to select from.</p>
-          <Categories setCategory={selectedCategory => setCategory(selectedCategory)}/>
-          <Jokes category={category}/>
+          <Categories/>
+          <Jokes/>
         </div>
       </ApolloProvider>
     </Provider>

@@ -1,17 +1,17 @@
 export const singular = () => {
     return {
-        type: 'singular'
+        type: 'SINGULAR_JOKE'
     }
 }
 
 export const multi = () => {
     return {
-        type: 'multi'
+        type: 'MULTI_JOKE'
     }
 }
 
-export const setType = (type) => {
+export const setCategory = (category) => {
     return {
-        type
+        type: category
     }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
+import { useDispatch } from 'react-redux';
+import { setCategory } from '../actions'
 
 const GET_CATEGORIES = gql`
     query GetCategories {
@@ -9,12 +11,13 @@ const GET_CATEGORIES = gql`
 `;
 export default function Joke(props: any) {
     const { loading, error, data } = useQuery(GET_CATEGORIES);
+    const dispatch = useDispatch();
     if(loading) return 'Fetching category list...';
     if(error) return `Error: ${error}`;
     return (
         <div className="row">
             <div className="col-md-12">
-                <select className="form-control form-control-s" defaultValue="none" name="categories" onChange={e => props.setCategory(e.target.value)}>
+                <select className="form-control form-control-s" defaultValue="none" name="categories" onChange={e => dispatch(setCategory(e.target.value))}>
                     <option disabled value="none">-- Select a category --</option>
                     {
                         data.categories.map((category: string) => (

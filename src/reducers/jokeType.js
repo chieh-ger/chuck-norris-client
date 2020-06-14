@@ -1,11 +1,11 @@
-const jokeTypeReducer = (state = 'singular', action) => {
+const jokeTypeReducer = (state = 'SINGULAR_JOKE', action) => {
     switch(action.type) {
-        case 'singular':
-            return 'singular';
-        case 'multi':
+        case 'SINGULAR_JOKE':
+            return 'single'
+        case 'MULTI_JOKE':
             return 'multi';
         default:
-            return 'singular';
+            return state;
     }
 }
 
