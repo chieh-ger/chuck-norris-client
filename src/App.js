@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 // Components
 import Categories from './components/Categories';
 import Jokes from './components/Jokes';
-import AllReducers from './store';
+import Store from './store';
 // Stylesheets
 import './App.css';
 
@@ -22,7 +22,7 @@ export default function App() {
   }
 
   return (
-    <Provider store={AllReducers}>
+    <Provider store={Store}>
       <ApolloProvider client={CLIENT}>
         <div className="container">
           <h1 style={{padding: '20px'}}>SovTech Assessment</h1>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
-import JokesItem from '../components/JokesItem';
 import { useSelector } from 'react-redux';
+
+import JokesItem from '../components/JokesItem';
 
 let isList: boolean = false;
 
@@ -27,17 +28,18 @@ export default function Jokes({category}: any) {
     `;
     const { loading, error, data, refetch } = useQuery(QUERY_CATEGORY, {variables: {category}, skip: !category});
     const [ getAllJokes, { loading: loadingList, data: response }] = useLazyQuery(QUERY_ALL, {variables: {category}});
-    // console.log(data);
-    console.log(response);
-    // console.log(isList);
+    const test = useSelector((state: any) => state.category);
+
     if (loading) return <p>Getting a {category} joke...</p>;
     if (loadingList) return <p>Getting a list of {category} jokes...</p>;
     if (error) return `An error has ocurred`;
     if (!data) return null;
+
     return (
         <div className="row">
             <div className="col-md-12" style={{marginTop: '10px'}}>
                 <p>Below shows a random joke retrieved under "{category}"</p>
+                <p>{test}</p>
                 <button className="btn btn-dark" onClick={() => {refetch(); isList = false}}>Get Another!</button>
                 <button className="btn btn-dark" onClick={() => {getAllJokes(); isList = true}}>Get All!</button>
                 {

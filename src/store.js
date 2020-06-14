@@ -1,8 +1,8 @@
 import { createStore } from 'redux';
-import jokeTypeReducer from './reducers/jokeType';
+import allReducers from './reducers';
 
 const store = createStore(
-    jokeTypeReducer,
+    allReducers,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
