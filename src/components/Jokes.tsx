@@ -1,9 +1,8 @@
 import React from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
-
 import JokesItem from '../components/JokesItem';
-
+import { useSelector } from 'react-redux';
 
 let isList: boolean = false;
 
