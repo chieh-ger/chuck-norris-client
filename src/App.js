@@ -7,18 +7,17 @@ import { Provider } from 'react-redux';
 import Categories from './components/Categories';
 import Jokes from './components/Jokes';
 import Store from './store';
-// Stylesheets
-import './App.css';
+import { StyledH1 } from './components/styled-components';
 
 const CLIENT = new Client({
-  uri: 'http://localhost:3100/graphql'
+  uri: 'https://graphql-chuck-norris.herokuapp.com/'
 });
 export default function App() {
   return (
     <Provider store={Store}>
       <ApolloProvider client={CLIENT}>
         <div className="container">
-          <h1 style={{padding: '20px'}}>SovTech Assessment</h1>
+          <StyledH1>SovTech Assessment</StyledH1>
           <p>Below is the list of available Chuck Norris joke categories to select from.</p>
           <Categories/>
           <Jokes/>

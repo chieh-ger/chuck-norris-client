@@ -1,8 +1,11 @@
+// Import Libraries
 import React from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
+
 import { setCategory } from '../actions'
+import { LoadingText } from './styled-components';
 
 const GET_CATEGORIES = gql`
     query GetCategories {
@@ -12,8 +15,13 @@ const GET_CATEGORIES = gql`
 export default function Joke(props: any) {
     const { loading, error, data } = useQuery(GET_CATEGORIES);
     const dispatch = useDispatch();
-    if(loading) return 'Fetching category list...';
-    if(error) return `Error: ${error}`;
+    if(loading) return <LoadingText>Retrieving List of Categories</LoadingText>;
+    if (error)
+        return (
+        <div className="alert alert-primary" role="alert">
+            An error has ocurred getting categories
+        </div>
+        );
     return (
         <div className="row">
             <div className="col-md-12">
