@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
+// Import Components
 import { setCategory } from '../actions'
 import { LoadingText } from './styled-components';
 
@@ -18,9 +19,9 @@ export default function Joke(props: any) {
     if(loading) return <LoadingText>Retrieving List of Categories</LoadingText>;
     if (error)
         return (
-        <div className="alert alert-primary" role="alert">
-            An error has ocurred getting categories
-        </div>
+            <div className="alert alert-primary" role="alert">
+                An error has ocurred getting categories
+            </div>
         );
     return (
         <div className="row">

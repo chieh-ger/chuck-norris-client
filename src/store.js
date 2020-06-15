@@ -1,4 +1,7 @@
+// Libraries
 import { createStore } from 'redux';
+
+// Components
 import allReducers from './reducers';
 
 const store = createStore(

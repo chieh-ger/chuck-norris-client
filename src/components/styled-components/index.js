@@ -1,7 +1,9 @@
+// Libraries
 import styled from "styled-components";
 
 export const JokeContainer = styled.div`
     margin-top: 10px;
+    margin-bottom: 10px;
     padding: 10px;
     background-color: #f6f6f6;
     text-align: center;
@@ -22,7 +24,15 @@ export const LoadingText = styled.p`
     text-align: center;
 `
 export const ButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
+
+export const DescriptionText = styled.h5`
+    color: #666;
+    padding: 10px;
+    text-align: center;
+`
